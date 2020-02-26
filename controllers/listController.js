@@ -16,12 +16,13 @@ lists.get('/', (req, res) => {
 
 // get 'LIST' collection from DB
 lists.get('/:id', (req, res) => {
-  models.List.findById((err, allList) => {
+  models.List.findById(req.params.id, (err, list) => {
     if (err) {
       console.log(err);
+    } else {
+      console.log(list);
+      res.send(list);
     }
-    console.log(allList);
-    res.send(allList);
   });
 });
 
