@@ -14,6 +14,17 @@ lists.get('/', (req, res) => {
   });
 });
 
+// get 'LIST' collection from DB
+lists.get('/:id', (req, res) => {
+  models.List.findById((err, allList) => {
+    if (err) {
+      console.log(err);
+    }
+    console.log(allList);
+    res.send(allList);
+  });
+});
+
 // add a new list into 'LIST' collection
 lists.post('/', (req, res) => {
   models.List.create(req.body, (err, createdList) => {
