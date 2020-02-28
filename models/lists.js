@@ -14,7 +14,7 @@ const listSchema = new Schema({
   name: {type: String},
   groups: {type: String},
   shared: {type: Boolean},
-  available: {type: Schema.Types.ObjectId, ref: 'Group'},
+  available: [{type: Schema.Types.ObjectId, ref: 'User'}],
 });
 
 const List = mongoose.model('List', listSchema);

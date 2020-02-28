@@ -17,7 +17,7 @@ lists.get('/', (req, res) => {
 // get 'LIST' collection from DB
 lists.get('/:id', (req, res) => {
   models.List.findById(req.params.id)
-    .populate('available')
+    .populate('members')
     .exec((err, list) => {
       if (err) {
         console.log(err);
